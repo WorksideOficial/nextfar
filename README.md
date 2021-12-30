@@ -12,7 +12,7 @@ Como solução implementada, adicionei todos os itens do carrinho ao sessionStor
 
 Como melhorias da aplicação, podemos implementar a ContextApi do react. assim temos como centralizar todas as funcionalidades do sistema e compartilhar com os demais componentes.
 
-## Teccnologias utilizadas;
+## Tecnologias utilizadas;
 
 React Js;
 Typescript;

@@ -25,6 +25,4 @@ Instale as dependências utilizando yarn ou npm i (escolha de sua preferência);
 Entre no diretório do projeto;
 
 ### `npm start`
-    ou
-### `yarn start`
 

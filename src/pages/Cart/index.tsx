@@ -60,7 +60,7 @@ const Cart:React.FC<Itens> = () => {
             </BoxItem>
             <BoxItemTotal>
               <span><b>Valor Total</b></span>
-                <h2>R$ {TotalPrice}</h2>
+                <h2>R$ {TotalPrice.toFixed(2)}</h2>
             </BoxItemTotal>
           </CartContent>
 

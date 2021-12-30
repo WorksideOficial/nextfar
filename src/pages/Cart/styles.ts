@@ -20,13 +20,14 @@ display: flex;
 justify-content: space-between;
 `;
 export const BoxItem = styled.div`
-    width: 65%;
+    width: 100%;
     padding: 12px;
     /* background-color: tomato; */
 `;
 
 export const Item = styled.div`
     width: 100%;
+    height: 100px;
     padding: 12px;
     background-color: var(--white);
     border-radius: 10px 10px 10px 10px;
@@ -43,6 +44,7 @@ export const Item = styled.div`
 
     th, td {
       padding: 15px;
+      width: 50%;
       .button{
         background-color: var(--red);
         color: var(--white);
@@ -56,12 +58,17 @@ export const Item = styled.div`
 `;
 
 export const BoxItemTotal = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 34%;
-    height: 250px;
+    height: 120px;
     padding: 12px;
     background-color: var(--white);
     border-radius: 10px 10px 10px 10px;
     margin-bottom: 10px;
+    margin-top: 10px
 `;
 
 export const Button = styled.div`
@@ -69,7 +76,7 @@ export const Button = styled.div`
     color: var(--white);
     border-radius: 5px;
     padding: 12px;
-    width: 12%;
+    width: 15%;
     margin-bottom: 10px;
     cursor: pointer;
 `;

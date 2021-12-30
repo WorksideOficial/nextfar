@@ -23,4 +23,6 @@ export default createGlobalStyle `
     background-color: var(--primary);
     font-family: 'Roboto', sans-serif;
   }
+  a{text-decoration: none;}
+  ul{list-style: none;}
 `;

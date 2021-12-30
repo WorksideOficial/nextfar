@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Children, useState} from "react";
 import Header from "../../components/Header";
 import SidebarLeft from "../../components/SidebarLeft";
 import SidebarRight from "../../components/SidebarRight";
@@ -22,7 +22,6 @@ const Home:React.FC = () => {
     price: number, 
     id: number
   }>>([]);
-  console.log("carrinho de compras", cart);
 
   const AddCart = (id:number, name:string, price:number) => {
     const itemObject = { id, name, price };
@@ -30,6 +29,8 @@ const Home:React.FC = () => {
     sessionStorage.setItem('@itens:cart', JSON.stringify([...cart, itemObject]));
     toast.info('Produto adicionado no carrinho');
   }
+
+  const TotalPrice = cart.reduce((acc:any, current:any) => acc + current.price.price, 0);
   return(
     <>
     <Header />

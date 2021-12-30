@@ -16,6 +16,9 @@ export const Logo = styled.div`
   img{
     width: 150px;
   }
+  h2{
+    color: var(--green);
+  }
 `;
 export const Menu = styled.div`
   display: flex;
@@ -38,6 +41,9 @@ export const Avatar = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 35px;
+  span{
+    margin-right: 10px;
+  }
   img{
     width: 50px;
     height: 50px;

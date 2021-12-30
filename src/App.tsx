@@ -5,7 +5,6 @@ import {
   Route,
 } from "react-router-dom";
 import Error from './components/Error';
-import Cart from './pages/Cart';
 import Home from './pages/Home';
 
 import { ToastContainer } from "react-toastify";
@@ -13,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 import GlobalStyles from './styles/GlobalStyles';
+import Cart from './pages/Cart';
 
 function App() {
   return (

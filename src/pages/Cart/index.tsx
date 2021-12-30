@@ -1,44 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import SidebarLeft from "../../components/SidebarLeft";
-import { Main, Content, BoxItem, Button, CartContent, Item } from "./styles";
+import { Main, Content, BoxItem, Button, CartContent, Item, BoxItemTotal } from "./styles";
 
 interface Itens {
   id: string;
   name: string;
   price: number;
-  items: [];
+  items: {};
 }
 const Base = "http://localhost:3000";
 
 const Cart:React.FC<Itens> = () => {
-  const [items, setItems] = useState("");
-  const itens = JSON.parse(sessionStorage.getItem('@itens:cart') || '{}');
+  const itens = JSON.parse(sessionStorage.getItem('@itens:cart') || '[]');
+  const[cart, setCart] = useState<Array<{
+      name: string, 
+      price: number, 
+      id: number
+    }>>(itens);
+    
   const storage = sessionStorage.getItem('@itens:cart');
   if(!storage){
     window.location.href=Base;
   }
-  console.log(itens);
-  const clearCart = () => {
-    sessionStorage.removeItem('@itens:cart');
-    window.location.href=Base;
-  }
+    const TotalPrice = cart.reduce((acc:any, current:any) => acc + current.price.price, 0);
 
-  const clearCartItem = (id:any) => {
-    const items = JSON.parse(sessionStorage.getItem('@itens:cart') || '{}');
-    const index = items.indexOf(id);
-
-    console.log(index);
-    const existInLocalStorage = index === - 1;
-
-    console.log(existInLocalStorage);
-
-    if(existInLocalStorage){
-      items.splice(index);
-      setItems(items);
+    const clearCart = () => {
+      sessionStorage.removeItem('@itens:cart');
+      window.location.href=Base;
     }
-  }
 
+    const removeItem = (itemId:any) => {
+      const filter = cart.filter(cartItem => cart.indexOf(cartItem) !== itemId);
+      setCart(filter);
+    }
 
   return(
     <>
@@ -46,27 +41,27 @@ const Cart:React.FC<Itens> = () => {
     <Main>
         <SidebarLeft />
         <Content>
-          <Button onClick={clearCart}>Limpar Carrinho</Button>
-
+        <Button onClick={clearCart}>Limpar Carrinho</Button>
           <CartContent>
             <BoxItem>
-            <h2>Produtos</h2>
-              {itens.map((item:any, index:any) => (
+            {itens.map((item:any, index:any) => (
                 <Item key={index}>
                 <table>
                 <tbody>
                 <tr>
                   <td>{item.name}</td>
                   <td>R$ {item.price.price}</td>
-                  <td><button className="button" onClick={() => {clearCartItem(item.id)}}>Excluir</button></td>
+                  <td><button className="button"  onClick={() => {removeItem(item)}}>Excluir</button></td>
                 </tr>
                 </tbody>
               </table>
               </Item>
               ))}
-                
-              
             </BoxItem>
+            <BoxItemTotal>
+              <span><b>Valor Total</b></span>
+                <h2>R$ {TotalPrice}</h2>
+            </BoxItemTotal>
           </CartContent>
 
         </Content>

@@ -23,7 +23,7 @@ const Header:React.FC = () => {
         <Link to="/"><img src={Img01} alt="" /></Link> 
       </Logo>
       <Logo>
-        <Link to="/carrinho"><h2><i className="fas fa-shopping-cart"></i>  ({cart.length}) Ir para o carrinho</h2></Link> 
+        <Link to="/carrinho"><h2><i className="fas fa-shopping-cart"></i>  ({cart.length}) Meu carrinho</h2></Link> 
       </Logo>
       <Menu>
         <Price>

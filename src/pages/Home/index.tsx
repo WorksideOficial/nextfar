@@ -45,8 +45,7 @@ const Home:React.FC = () => {
                  <b>{items.name}</b>
                </Items>
                <Items>
-               <span>1515415</span>
-               <span>1515415</span>
+               <span><i className="fas fa-barcode"></i></span>
                </Items>
              </HeaderItem>
              <Item>
